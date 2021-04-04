@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.studyeasy.phone.OnePlus5"/>
+    <fullyQualifiedTypeName name="org.studyeasy.phone.Phone"/>
+    <fullyQualifiedTypeName name="org.studyeasy.phone.Iphone8"/>
+    <fullyQualifiedTypeName name="org.studyeasy.person.Vegan"/>
+    <fullyQualifiedTypeName name="org.studyeasy.person.Person"/>
+    <fullyQualifiedTypeName name="org.studyeasy.person.NonVegan"/>
+    <fullyQualifiedTypeName name="org.studyeasy.person.LiveLife"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.locks.Lock"/>
+    <fullyQualifiedTypeName name="org.studyeasy.shop.Door.Lock"/>
+    <fullyQualifiedTypeName name="org.studyeasy.shop.Door"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,5 @@
+INDEX VERSION 1.131+/Users/padillatom/PadillaTom/Tomas/Programacion/Java/StudyEasy-Fullstack/Java/CoreConcepts/.metadata/.plugins/org.eclipse.jdt.core
+829174997.index
+3456903314.index
+1400968959.index
+2415737334.index

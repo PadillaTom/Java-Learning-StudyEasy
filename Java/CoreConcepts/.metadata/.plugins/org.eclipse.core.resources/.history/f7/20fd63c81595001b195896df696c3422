@@ -1,0 +1,29 @@
+package org.studyeasy.shop;
+
+import java.util.concurrent.locks.Lock;
+
+public class Door {
+	
+	private Lock lock;
+	
+	
+//	**** INNER CLASS ****
+	class Lock {
+//		Fields:
+		private boolean lock;
+//		Method:
+		public Lock(boolean lock) {
+			this.lock = lock;
+		}
+//		Getters and Setters:
+		public boolean isLock() {
+			return lock;
+		}
+
+		public void setLock(boolean lock) {
+			this.lock = lock;
+		}
+		
+	}
+
+}
