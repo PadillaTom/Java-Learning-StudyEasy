@@ -36,7 +36,14 @@
 			out.println("X is lesser than 25");
 		}
 	%>
-
+	<br/>
+ 
+ <%! 
+ String message() {
+		return "I love JSP";
+ }
+ %>
+ <%= message()%>
 	
 </body>
 </html>
