@@ -43,13 +43,19 @@ public class SiteController extends HttpServlet {
 //			Creating a new Session for this "TOM" user.
 			HttpSession newSession = request.getSession(true);
 			newSession.setMaxInactiveInterval(300);
-//			Controller Creating Cookie, before redirecting:
-			Cookie cUsername = new Cookie("username", username);
-			response.addCookie(cUsername);
+			
+//			Using COOKIES:
+//			Cookie cUsername = new Cookie("username", username);
+//			response.addCookie(cUsername);
+			
+//			Using SESSION:
+			newSession.setAttribute("username", username);
+			
 			response.sendRedirect("memberArea.jsp");
 		} else {
 			response.sendRedirect("login.jsp");
 		}
 	}
+	
 
 }
