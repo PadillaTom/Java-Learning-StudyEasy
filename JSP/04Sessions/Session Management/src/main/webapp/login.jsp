@@ -13,6 +13,7 @@
 	<br>
 	Password: <input type="password" name="password">
 	<br>
+	<input type="hidden" name="action" value="loginSubmit">
 	<input type="submit" value="submit">
 
 </form>

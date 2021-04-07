@@ -29,28 +29,16 @@ public class MemberAreaController extends HttpServlet {
 //		COOKIES:
 		String action = request.getParameter("action");
 		switch(action) {
+		case "memberArea":
+			// We Create the URL for this file.
+			request.getRequestDispatcher("memberArea.jsp").forward(request, response);
+			break;
+		case "membersOnly":
+			request.getRequestDispatcher("membersOnly.jsp").forward(request, response);
 		case "destroy":
-			// Request Session to be "invalidated" :
-			request.getSession().invalidate();
-			
-//			Using COOKIES:
-			// Request Cookies that match the one we want to set to null (erase).
-			// Cookie[] cookies = request.getCookies();
-			// for(Cookie cookie: cookies) {
-			//	if(cookie.getName().equals("username")) {
-			//		cookie.setValue(null);
-			//		cookie.setMaxAge(0);
-					// Add the new cookie completely erased.
-			//		response.addCookie(cookie);
-			//	}
-			//}
-			
-			
-//			Using SESSIONS: Invalidate is more than enough.
-			
-			
-			// Redirect after Session and Cookie erased.
-			response.sendRedirect("login.jsp");
+			// Request Session to be "invalidated" and redirect to home:
+			request.getSession().invalidate();				
+			response.sendRedirect(request.getContextPath()+"/SiteController?action=login");
 			break;
 		default:
 			break;		

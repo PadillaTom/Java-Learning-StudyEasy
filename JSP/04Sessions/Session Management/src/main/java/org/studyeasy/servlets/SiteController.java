@@ -27,33 +27,53 @@ public class SiteController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String action = request.getParameter("action");
+		switch(action) {
+		case "login":
+			request.getRequestDispatcher("login.jsp").forward(request, response);
+			break;			
+		default:
+			break;
+		}
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String action = request.getParameter("action");
+		switch(action){
+		case "loginSubmit":
+			authenticate(request, response);
+			break;
+		default:
+			break;
+		}
+	}
+	
+	
+//	------------------------
+//	**** Public Methods ****
+//	------------------------
+	
+	public void authenticate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		
+		// Creating new SESSION for "tom" Username:
 		if(username.equals("tom") && password.equals("asdasd")) {
-//			Invalidating Session If Any: Destroying any session if its there.
+		// First: Invalidate any previous session for this username.
 			request.getSession().invalidate();
-//			Creating a new Session for this "TOM" user.
+		// Second: Creating the new session with correspondent attributes.
 			HttpSession newSession = request.getSession(true);
-			newSession.setMaxInactiveInterval(300);
-			
-//			Using COOKIES:
-//			Cookie cUsername = new Cookie("username", username);
-//			response.addCookie(cUsername);
-			
-//			Using SESSION:
+			newSession.setMaxInactiveInterval(300);	
 			newSession.setAttribute("username", username);
-			
-			response.sendRedirect("memberArea.jsp");
+		// Encode URL before redirecting (in case cookies are disabled):
+			String encode = response.encodeURL(request.getContextPath());
+		// Third: Make the correspondent redirects.
+			response.sendRedirect(encode +"/MemberAreaController?action=memberArea");
 		} else {
-			response.sendRedirect("login.jsp");
+			response.sendRedirect(request.getContextPath()+"/SiteController?action=login");
 		}
 	}
 	
